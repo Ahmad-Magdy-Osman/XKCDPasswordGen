@@ -37,7 +37,7 @@ def read(lang_file):
     return words
 
 
-def generate(words, min_len, max_len, min_word_len, max_word_len, words_per_pwd):
+def generate(words, min_len, max_len, min_word_len, max_word_len, words_per_pwd=4):
     # Filtering words based on length
     filtered_words = {}
     for word in words:
@@ -69,24 +69,24 @@ def generate(words, min_len, max_len, min_word_len, max_word_len, words_per_pwd)
     return passwords
 
 
-def easy_typing(words):
+def easy(words):
     # Filtering based on easy typing
     easy = {}
     for word in words:
-        if words[word]["easy"] == "yes" and word not in easy:
+        if words[word]["easy"] == True and word not in easy:
             easy[word] = {"len": words[word]["len"]}
 
     return easy
 
 
-def numbers(words):
+def numbers(passwords):
     # Doing letter/number substitutions
-    for i in range(len(words)):
-        for j in range(len(words[i])):
-            words[i][j] = list(words[i][j])
-            for k in range(len(words[i][j])):
-                if words[i][j][k] in letters_nums:
-                    words[i][j][k] = letters_nums[words[i][j][k]]
-            words[i][j] = "".join(words[i][j])
+    for i in range(len(passwords)):
+        for j in range(len(passwords[i])):
+            passwords[i][j] = list(passwords[i][j])
+            for k in range(len(passwords[i][j])):
+                if passwords[i][j][k] in letters_nums:
+                    passwords[i][j][k] = letters_nums[passwords[i][j][k]]
+            passwords[i][j] = "".join(passwords[i][j])
 
-    return words
+    return passwords

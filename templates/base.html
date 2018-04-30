@@ -1,0 +1,13 @@
+{% extends "bootstrap/base.html" %} {% import "bootstrap/wtf.html" as wtf %} {% block styles %} {{ super() }} {% endblock
+%} {% block navbar %}
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+        <li>
+            <a class="navbar-brand" href="/">XKCD Password Generator</a>
+        </li>
+    </ul>
+    <div class="text-center">
+        <a href="https://xkcd.com/936/" target="_blank" type="button" style="float:right; margin-right:20px" class="btn btn-default navbar-btn">Inspiration: XKCD 936!</a>
+    </div>
+</nav>
+{% endblock %}
